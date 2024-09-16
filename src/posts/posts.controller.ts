@@ -4,5 +4,7 @@ import { CreatePostDto } from './dto/create-post.dto';
 @Controller('posts')
 export class PostsController {
   @Post()
-  public async createPost(@Body() createPostDto: CreatePostDto) {}
+  public async createPost(@Body() createPostDto: CreatePostDto) {
+    console.log(createPostDto);
+  }
 }
