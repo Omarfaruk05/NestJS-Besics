@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>class to connect to users table and perform business operations.</p>
+
+            </p>
 
 
 
@@ -164,6 +171,7 @@
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#findAll" >findAll</a>
                             </li>
                             <li>
@@ -210,14 +218,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/users/users.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/users/users.service.ts:62</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>create user</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -277,14 +287,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="73"
-                                    class="link-to-prism">src/users/users.service.ts:73</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/users/users.service.ts:90</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>delete single user</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -330,6 +342,7 @@
                 <td class="col-md-4">
                     <a name="findAll"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>findAll</b></span>
                         <a href="#findAll"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -337,21 +350,24 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findAll(role?: "INTERN" | "ENGINEER" | "ADMIN")</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(role?: "INTERN" | "ENGINEER" | "ADMIN")</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/users/users.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/users/users.service.ts:37</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>get all users</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -411,14 +427,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/users/users.service.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/users/users.service.ts:52</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>get single user</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -478,14 +496,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/users/users.service.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/users/users.service.ts:76</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>update single user</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -587,10 +607,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/users/users.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/users/users.service.ts:13</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>declare initial value</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -603,9 +629,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { CreateUserDto } from &#x27;./dto/create-user.dto&#x27;;
 import { UpdateUserDto } from &#x27;./dto/update-user.dto&#x27;;
+/**
+ * class to connect to users table and perform business operations.
+ */
 
 @Injectable()
 export class UsersService {
+  /**
+   * declare initial value
+   */
   private users &#x3D; [
     {
       id: 1,
@@ -626,9 +658,11 @@ export class UsersService {
       role: &#x27;ADMIN&#x27;,
     },
   ];
+  /**
+   * get all users
+   */
 
-  // get all users
-  findAll(role?: &#x27;INTERN&#x27; | &#x27;ENGINEER&#x27; | &#x27;ADMIN&#x27;) {
+  public findAll(role?: &#x27;INTERN&#x27; | &#x27;ENGINEER&#x27; | &#x27;ADMIN&#x27;) {
     if (role) {
       const rolesArray &#x3D; this.users.filter((user) &#x3D;&gt; user.role &#x3D;&#x3D;&#x3D; role);
       if (!rolesArray.length) {
@@ -640,7 +674,9 @@ export class UsersService {
     return this.users;
   }
 
-  // get single user
+  /**
+   * get single user
+   */
   findOne(id: number) {
     const user &#x3D; this.users.find((user) &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; id);
     if (!user) throw new NotFoundException(&#x27;User does not exist&#x27;);
@@ -648,7 +684,9 @@ export class UsersService {
     return user;
   }
 
-  // create user
+  /**
+   * create user
+   */
   create(createUserDto: CreateUserDto) {
     const usersByHighestId &#x3D; [...this.users].sort((a, b) &#x3D;&gt; b.id - a.id);
     const newUser &#x3D; {
@@ -660,7 +698,9 @@ export class UsersService {
     return newUser;
   }
 
-  // update single user
+  /**
+   * update single user
+   */
   update(id: number, updatedUserDto: UpdateUserDto) {
     this.users &#x3D; this.users.map((user) &#x3D;&gt; {
       if (user.id &#x3D;&#x3D;&#x3D; id) {
@@ -672,6 +712,9 @@ export class UsersService {
     return this.findOne(id);
   }
 
+  /**
+   * delete single user
+   */
   delete(id: number) {
     const removedUser &#x3D; this.findOne(id);
     this.users &#x3D; this.users.filter((user) &#x3D;&gt; user.id !&#x3D;&#x3D; id);

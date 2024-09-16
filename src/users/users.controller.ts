@@ -19,29 +19,22 @@ import { ApiTags } from '@nestjs/swagger';
 @ApiTags('Users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
-  /*
-    GET /users
-    GET /users/:id
-    POST /users
-    PATCH /users/:id
-    DELETE /users/:id
-  */
 
   //GET /users or /users?role=value
   @Get()
-  findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
+  public findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
     return this.usersService.findAll(role);
   }
 
   //GET /user/:id
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  public findOne(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.findOne(id);
   }
 
   //POST /users
   @Post()
-  Create(
+  public Create(
     @Body(ValidationPipe)
     createUserDto: CreateUserDto,
   ) {
@@ -50,7 +43,7 @@ export class UsersController {
 
   //PATCH /users/:id
   @Patch(':id')
-  update(
+  public update(
     @Param('id', ParseIntPipe) id: number,
     @Body(ValidationPipe)
     updateUserDto: UpdateUserDto,
@@ -60,7 +53,7 @@ export class UsersController {
 
   //DELETE /users/:id
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  public delete(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.delete(id);
   }
 }
